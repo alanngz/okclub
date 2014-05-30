@@ -1,5 +1,7 @@
-<h1>New cliente</h1>
+<h1>Nuevo Cliente</h1>
 
 <%= render 'form' %>
 
+<% if session[:user] == 1%>
 <%= link_to 'Back', clientes_path %>
+<%end%>

@@ -32,8 +32,8 @@
   </div>
   </div>
 <% end %>
+<%= link_to 'Regresar', "/categoria" %>
 <% if session[:user] == 1 %>
-<%= link_to 'Editar p.', edit_proveedor_path(@proveedor) %> |
-<%= link_to 'Proveedores', proveedors_path %>
+<%= link_to 'Servicios', servicios_path %>
 <%= link_to 'Solicitudes', "/solicituds" %>
 <% end %>

@@ -28,7 +28,7 @@ class SolicitudsController < ApplicationController
 
     respond_to do |format|
       if @solicitud.save
-        format.html { redirect_to @solicitud, notice: 'Solicitud was successfully created.' }
+        format.html { redirect_to @solicitud, notice: 'Solicitud guardada el proveedor se comunicara con usted.' }
         format.json { render :show, status: :created, location: @solicitud }
       else
         format.html { render :new }
