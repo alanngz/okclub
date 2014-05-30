@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Servicio:</strong>
+  <%= @solicitud.servicio_id %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @solicitud.cliente_id %>
+</p>
+
+<%= link_to 'Edit', edit_solicitud_path(@solicitud) %> |
+<%= link_to 'Back', solicituds_path %>
+
+<%= link_to 'Regresar', "/categoria" %>

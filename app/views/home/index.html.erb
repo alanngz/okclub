@@ -1,0 +1,33 @@
+<h1 align=center>OKClub!</h1>
+
+<div id="divLog">
+<%= form_for @cliente, :as => :user, :url => sign_in_path(@cliente) do |f| %>
+  <p>
+    <%= f.label 'nombre' %><br />
+    <%= f.text_field :nombre %>
+  </p>
+
+  <p>
+    <%= f.submit 'Sign In' %>&nbsp;&nbsp;&nbsp;
+    <%= f.submit 'Clear Form', :type => 'reset' %>
+  </p>
+<% end %>
+</div>
+<style>
+	body{
+		text-align: center;
+		font-family: verdana;
+		background-color: #D8D8D8;
+	}
+	#divLog{
+		background-color: #7570B3;
+		border-radius: 3px;
+		width: 200px;
+		height: 200px;
+		text-align: center;
+		margin: 0 auto;
+	}
+	h1{
+		color: #7A7A7A;
+	}
+<style>

@@ -1,0 +1,28 @@
+<%= form_for(@solicitud) do |f| %>
+  <% if @solicitud.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@solicitud.errors.count, "error") %> prohibited this solicitud from being saved:</h2>
+
+      <ul>
+      <% @solicitud.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% prove = {} %>
+  <% Proveedor.all.each do |proveedor| %>
+    <% prove[proveedor.nombre] = proveedor.id %>
+  <% end %>
+  <div class="field">
+    <%= f.label :servicio_id %><br>
+    <%= f.number_field :servicio_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cliente_id %><br>
+    <%= f.number_field :cliente_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

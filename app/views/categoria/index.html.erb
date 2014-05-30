@@ -1,0 +1,26 @@
+<h1>Categorias!</h1>
+<% if flash[:notice]  %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+  <tbody>
+    <% @categoria.each do |categorium| %>
+    <div class="divc">
+      <h3><%= categorium.nombre %></h3>
+      <%= link_to 'Ver', categorium %>
+      <% if session[:user] == 1 %>
+         <%= link_to 'Editar', edit_categorium_path(categorium) %>
+         <!--<%= link_to 'Borrar', categorium, method: :delete, data: { confirm: 'Are you sure?' } %>-->
+      <% end %>
+      
+    </div>
+    <% end %>
+<br>
+<% if session[:user] == 1 %>
+
+<%= link_to 'Nueva Categoria', new_categorium_path %>
+
+<% end %>
+<style type="text/css">
+   
+</style>

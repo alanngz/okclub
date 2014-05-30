@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @proveedor.nombre %>
+</p>
+<% serv = {} %>
+<% @proveedor.servicios.each do |servicio| %>
+  <% serv[servicio.descripcion] = servicio.id %>
+<% end %>
+<% @solicitud = Solicitud.new %>
+<%= form_for(@solicitud) do |f| %>
+  <% if @solicitud.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@solicitud.errors.count, "error") %> prohibited this solicitud from being saved:</h2>
+
+      <ul>
+      <% @solicitud.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="divc">
+  <div class="field">
+    <%= f.label :servicio_id %><br>
+    <%= f.select :servicio_id, serv %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </div>
+<% end %>
+<% if session[:user] == 1 %>
+<%= link_to 'Editar p.', edit_proveedor_path(@proveedor) %> |
+<%= link_to 'Proveedores', proveedors_path %>
+<%= link_to 'Solicitudes', "/solicituds" %>
+<% end %>

@@ -1,0 +1,28 @@
+<h1>Lista servicios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Proveedor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @servicios.each do |servicio| %>
+      <tr>
+        <td><%= servicio.descripcion %></td>
+        <td><%= servicio.proveedor.nombre %></td>
+        <td><%= link_to 'Show', servicio %></td>
+        <td><%= link_to 'Editar', edit_servicio_path(servicio) %></td>
+        <td><%= button_to 'Borrar', servicio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Servicio', new_servicio_path %>
+<%= link_to 'Regresar', "categoria" %>

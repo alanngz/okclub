@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @categorium.nombre %></h1>
+<% @categorium.proveedors.each do |proveedor| %>
+	<div class="divc">
+      <h3><%= proveedor.nombre %></h3>
+      <p>Telefono: <%= proveedor.telefono %></p>
+      <p>Email: <%= proveedor.email %></p>
+      <p>Direccion: <%= proveedor.direccion %></p>
+      <%= link_to 'Servicios', proveedor %>
+      <% if session[:user] == 1 %>
+      <%= link_to 'Editar', edit_proveedor_path(proveedor) %>
+      <%= button_to 'Borrar', proveedor, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      
+    </div>
+<% end %>
+
+<%= link_to 'Editar', edit_categorium_path(@categorium) %> |
+<%= link_to 'Categorias', categoria_path %>
